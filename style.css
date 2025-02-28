@@ -29,11 +29,25 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 header h1 {
-	padding: 35px;
-	font-size: 35px;
+	padding: 15px;
+	padding-bottom: 50px;
+	font-size: 40px;
 }
 section {
 	text-align: center;
+}
+nav {
+	padding-bottom: 50px;
+	font-size: 40px;
+}
+li {
+	background-color:black;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+nav ul {
+	display: flex;
+	justify-content: space-evenly;
 }
 body {
 	line-height: 1;
