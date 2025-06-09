@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 header {
-	position: relative;
+	position: sticky;
 	background: #000000;
 	font-size: clamp(14px, 2vw, 16px); 
 	border-radius: 10px; 
@@ -108,4 +108,17 @@ body {
 a:link, a:visited {
 	color: #ffffff;
 	text-decoration: none;
+}
+.projects {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 60px;
+	padding: 5%;
+	justify-content: center;
+	align-items: center;
+}
+.projects img {
+	display:flex;
+	width: 50%;
 }
