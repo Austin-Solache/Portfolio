@@ -31,8 +31,7 @@ footer, header, hgroup, menu, nav, section {
 .faded-shape {
 	position: fixed;
 	background: #000000;
-	font-size: clamp(14px, 2vw, 16px); 
-	margin-top: 110px;
+	font-size: clamp(14px, 2vw, 16px);
 	width: 100%;
 	height: 100px;
 	font-size: 40px;
@@ -42,20 +41,20 @@ footer, header, hgroup, menu, nav, section {
 .about-me {
 	text-align: center;
 	font-size: 60px;
+	padding-top: 400px;
 }
 nav {
-	position: relative;
-	padding-bottom: 160px;
-	margin-top: -110px;
+	display: flex;
+	justify-content: flex-end;
 	font-size: 40px;
 }
 li {
-	justify-content: space-between;
-	padding: 20px;
+	justify-content: end;
+	padding: 25px;
 }
 nav ul {
 	display: flex;
-	justify-content: flex-end;
+	position: fixed;
 }
 body {
 	line-height: 1;
@@ -95,15 +94,13 @@ a:link, a:visited {
 .projects{
 	display:grid;
 	grid-template-columns: 1fr 1fr;
-	padding-left: 500px;
-	padding-right: 500px;
-	padding-top: 200px;	
-	padding-bottom: 200px;
-
+	margin: 0 auto;
+	width: fit-content;
 }
 .projects img {
 	height: 400px;
 	width: 400px;
 	border-radius: 50%;
 	margin-top: 50px;
+	padding: 50px;
 }
