@@ -9,33 +9,37 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <header class="faded-shape">
+    <header id="faded-shape">
       <h1>Austin Solache</h1>
     </header>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a  href="#">Projects</a></li>
-        <li><a  href="#">Resume</a></li>
+        <li><a href="#" onclick="scrollToSection('faded-shape')">Home</a></li>
+        <li><a  href="#" onclick="scrollToSection('projects')">Projects</a></li>
+        <li><a  href="#" onclick="scrollToSection('resume')">Resume</a></li>
         <li><a  href="#">Contact me</a></li>
       </ul>
     </nav>
-    <section class="about-me">
+    <section id="about-me">
       <div> Hello, I am Austin Solache </div>
       <div>I am passionate about Web Development/Design</div>
       <div>I believe that I will be a great asset to your company!</div>
     </section>
-    <section class="projects">
+    <section id="projects">
       <img src="project-coming-soon.jpg">
       <img src="project-coming-soon.jpg">
       <img src="project-coming-soon.jpg">
       <img src="project-coming-soon.jpg">
     </section>
-   <section class="resume">
-      <a href="Solache Austin Resume.pdf">Resume</a>
+   <section id="resume">
+      <a href="Solache Austin Resume.pdf" target="blank">Resume</a>
       <img src="Resume.jpg">
    </section>
     <script src="index.js"></script>
   </body>
 </html>
-<!-- Add Resume Link-->
+ <script>
+          function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({behavior:'smooth'});
+          }
+        </script>
