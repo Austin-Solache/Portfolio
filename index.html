@@ -14,10 +14,10 @@
     </header>
     <nav>
       <ul>
-        <li><a href="#" onclick="scrollToSection('faded-shape')">Home</a></li>
-        <li><a  href="#" onclick="scrollToSection('projects')">Projects</a></li>
-        <li><a  href="#" onclick="scrollToSection('resume')">Resume</a></li>
-        <li><a  href="#">Contact me</a></li>
+        <li><a href="#about-me">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume-link">Resume</a></li>
+        <li><a href="#">Contact me</a></li>
       </ul>
     </nav>
     <section id="about-me">
@@ -32,14 +32,9 @@
       <img src="project-coming-soon.jpg">
     </section>
    <section id="resume">
-      <a href="Solache Austin Resume.pdf" target="blank">Resume</a>
+      <a id="resume-link" href="Solache Austin Resume.pdf" target="blank">Resume</a>
       <img src="Resume.jpg">
    </section>
     <script src="index.js"></script>
   </body>
-</html>
- <script>
-          function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({behavior:'smooth'});
-          }
-        </script>
+</html>   
