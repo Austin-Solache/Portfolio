@@ -119,13 +119,10 @@ a:link, a:visited {
 	font-size: 125px;
 	align-items: center;
 	justify-content: center;
-	padding-bottom: 100px;
 }
 #resume-link {
 	color: #F7374F;
 	display: flex;
-	position: relative;
-	top: 700px;
 	justify-content: center;
 	align-items: center;
 	height: 700px;
@@ -135,4 +132,11 @@ a:link, a:visited {
 	box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	transition: font-size .5s;
+}
+#contact-me {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	margin-top: 500px;
+	padding-bottom: 500px;
 }
