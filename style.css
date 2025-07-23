@@ -31,12 +31,12 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color:#2C2C2C ;
+	background: #fbf7ff;
 }
 #faded-shape {
 	position: fixed;
 	backdrop-filter: blur(20px);
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(100, 97, 97, 0.5);
 	box-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	width: 100%;
@@ -44,14 +44,14 @@ body {
 	font-size: 40px;
 	align-content: center;
 	padding-left: 15px;
-	color: #F7374F;
+	color:  #2a53f9;
 	z-index: 9999;
 }
 nav {
 	display: flex;
 	justify-content: flex-end;
 	font-size: 40px;
-	color: #F7374F;
+	color:  #2a53f9;
 }
 nav li {
 	justify-content: end;
@@ -67,7 +67,7 @@ nav ul {
 	font-size: 60px;
 	padding-top: 320px;
 	padding-bottom: 450px;
-	color: #F7374F;
+	color:#2a53f9;;
 }
 ol, ul {
 	list-style: none;
@@ -96,9 +96,9 @@ nav a {
 }
 a:link, a:visited {
 	text-decoration: none;
-	color: #F7374F;
+	color: #2a53f9;
 }
- a:hover {
+ nav a:hover {
 	font-size: 120%;
 }
 #projects{
@@ -108,23 +108,30 @@ a:link, a:visited {
 	width: fit-content;
 	padding-top: 70px;
 }
-#projects img {
+#projects a {
+	display: grid;
 	height: 325px;
 	width: 325px;
+	justify-content: center;
+	align-items: center;
 	border-radius: 50%;
-	border: solid 5px #522546;
+	border: solid 2px #2a53f9;
 	margin: 50px;
 	gap: 20px;
+	font-size: 35px;
+	background-color: #302d4a;
 }
 #resume {
 	display: flex;
 	font-size: 125px;
 	align-items: center;
 	justify-content: center;
+	padding-top: 150px;
 }
 #resume-link {
-	color: #F7374F;
+	color:  #2a53f9;
 	display: flex;
+	position: absolute;
 	justify-content: center;
 	align-items: center;
 	height: 700px;
@@ -138,7 +145,10 @@ a:link, a:visited {
 #contact-me {
 	display: grid;
 	justify-content: center;
-	align-items: center;
-	margin-top: 500px;
-	padding-bottom: 500px;
+	margin-top: 300px;
+	padding-bottom: 300px;
+	font-size: 50px;
+}
+#contact-me li {
+	padding-bottom: 75px;
 }
