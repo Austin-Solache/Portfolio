@@ -29,3 +29,17 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+#buttons {
+    display: grid;
+    grid-template-columns: 100px 100px 100px; 
+    grid-template-rows: auto auto; 
+    gap: 15px;
+    width:550px;
+    height: 700px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: red;
+}
