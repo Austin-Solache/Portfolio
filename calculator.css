@@ -29,12 +29,17 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-
+#calculator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
 #buttons {
     display: grid;
     grid-template-columns: 100px 100px 100px; 
     grid-template-rows: auto auto; 
-    gap: 15px;
+    gap: 35px;
     width:550px;
     height: 700px;
     justify-content: center;
@@ -42,7 +47,9 @@ footer, header, hgroup, menu, nav, section {
     margin: 0 auto;
     margin-top: 100px;
     margin-bottom: 100px;
+    padding-top: 100px;
     background-color: #2a53f9;
+    border-radius: 10px;
 }
 #buttons button {
       height: 100px;
@@ -50,4 +57,14 @@ footer, header, hgroup, menu, nav, section {
 }
 button:hover {
     color: red;
+}
+#input-box {
+    display: flex;
+    position: absolute;
+    height: 75px;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    top: 125px;
+    background-color: whitesmoke;
 }
