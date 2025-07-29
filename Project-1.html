@@ -9,12 +9,13 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <script>
             function input(digit) { 
-                if (digit != "=") {
-                    document.getElementById("box").innerHTML = digit;
+                do {
+                     document.getElementById("box").innerHTML = digit;
+                     digit = '=';
                 }
-                else {
-                    document.getElementById("box").innerHTML = "Answer";
-                }
+                while (digit != "=") 
+
+                document.getElementById("box").innerHTML = "Answer";
             }
         </script>
     </head>
