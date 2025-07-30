@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="calculator.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <script>
+            let nextdigit = " ";
             function input(digit) { 
                  while (digit != "=")  {
-                     document.getElementById("box").innerHTML = digit;
-                     let first_number = digit + first_number;
-                     return;
+                   let str = digit.toString();
+                   nextdigit = nextdigit + str ;
+                    return document.getElementById("box").innerHTML = nextdigit;
                 } 
                 document.getElementById("box").innerHTML = "Answer";
             }
@@ -35,6 +36,9 @@
                 <button id="three" onclick="input(3)"> 3 </button>
                 <button id="decimal" onclick="input('.')"> . </button>
                 <button id="zero" onclick="input(0)"> 0 </button>
+                <button id="equals" onclick="input('=')"> = </button>
+                <button id="equals" onclick="input('=')"> = </button>
+                <button id="equals" onclick="input('=')"> = </button>
                 <button id="equals" onclick="input('=')"> = </button>
             </section>
         </section>    
