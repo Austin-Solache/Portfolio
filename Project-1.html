@@ -9,12 +9,11 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <script>
             function input(digit) { 
-                do {
+                 while (digit != "=")  {
                      document.getElementById("box").innerHTML = digit;
-                     digit = '=';
-                }
-                while (digit != "=") 
-
+                     let first_number = digit + first_number;
+                     return;
+                } 
                 document.getElementById("box").innerHTML = "Answer";
             }
         </script>
