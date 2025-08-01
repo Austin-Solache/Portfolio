@@ -8,32 +8,30 @@
     <link rel="stylesheet" href="calculator.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <script>
-            let nextdigit = " ";
+            let firstConst = "";
+            let secondConst = "";
             function input(digit) { 
-                 while (digit != "=")  {
-                   let str = digit.toString();
-                   nextdigit = nextdigit + str ;
-                    return document.getElementById("box").innerHTML = nextdigit;
-                    } 
-                document.getElementById("box").innerHTML = "Answer";
-                nextdigit = " ";
+                    if (digit != "=")  {
+                    let str = digit.toString();
+                    firstConst = firstConst + str ;
+                    return document.getElementById("box").innerHTML = firstConst;
+                }   else if (digit == 'c') {
+                    firstConst = "";
+                    document.getElementById("box").innerHTML = "0";
+                }   else {     
+                    document.getElementById("box").innerHTML = "Answer";
+                    firstConst = " ";
                 }
-            function clear(digit) {
-                while (digit = 'c') {
-                    nextdigit = " ";
-                    document.getElementById("box").innerHTML = nextdigit;
-                    
-                }
-                }
+            }
         </script>
     </head>
     <body>      
         <section id="calculator">
             <section id="input-box">
-                <p id="box">Enter Numbers</p>
+                <p id="box">0</p>
             </section>
             <section id="buttons">
-                <button onclick="clear('c')"> C </button>
+                <button onclick="input('c')"> C </button>
                 <button onclick="input('+/-')"> +/- </button>
                 <button onclick="input('%')"> % </button>
                 <button onclick="input('÷')"> ÷ </button>
