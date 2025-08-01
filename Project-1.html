@@ -11,11 +11,11 @@
             let firstConst = "";
             let secondConst = "";
             function input(digit) { 
-                    if (digit != "=")  {
+                    if (Number.isFinite(digit) === true)  {
                     let str = digit.toString();
                     firstConst = firstConst + str ;
                     return document.getElementById("box").innerHTML = firstConst;
-                }   else if (digit == 'c') {
+                }   else if (digit = 'c') {
                     firstConst = "";
                     document.getElementById("box").innerHTML = "0";
                 }   else {     
