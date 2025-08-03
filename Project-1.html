@@ -10,41 +10,71 @@
         <script>
             let firstConst = "";
             let secondConst = "";
+            let operation = "";
             function input(digit) { 
                 if (Number.isFinite(digit) === true)  {
-                    let str = digit.toString();
+                   if (operation === "" ) {
+                   let str = digit.toString();
                     firstConst = firstConst + str ;
                     str = "";
-                    return document.getElementById("box").innerHTML = firstConst;
-                }   
-                else if (digit === "+") {
-                    firstConst = firstConst + " + ";
-                    return document.getElementById("box").innerHTML = firstConst;
-                }   
-                else if (digit === "-") {
-                    firstConst = firstConst + " - ";
-                    return document.getElementById("box").innerHTML = firstConst;
+                    return document.getElementById("box").innerHTML = firstConst + operation;
                 }
-                else if (digit === "x") {
-                    firstConst = firstConst + " x ";
-                    return document.getElementById("box").innerHTML = firstConst;
-                }
-                else if (digit === "÷") {
-                    firstConst = firstConst + " ÷ ";
-                    return document.getElementById("box").innerHTML = firstConst;
-                }      
-                else if (Number.isFinite(digit) === true) {
+                else {
                     let str = digit.toString();
-                    secondConst = secondConst + str;
-                    return document.getElementById("box").innerHTML = firstConst + secondConst;
+                    secondConst = secondConst + str ;
+                    str = "";
+                    return document.getElementById("box").innerHTML = firstConst + operation + secondConst;
                 }
+                }   
+                else if (digit === " + ") {
+                    operation = digit;
+                    return document.getElementById("box").innerHTML = firstConst + operation;
+                }   
+                else if (digit === " - ") {
+                    firstConst2 = Number(firstConst);
+                    secondConst2 = Number(secondConst);
+                    operation = digit;
+                    return document.getElementById("box").innerHTML = firstConst + operation;
+                }
+                else if (digit === " x ") {
+                    firstConst2 = Number(firstConst);
+                    secondConst2 = Number(secondConst);
+                    operation = digit;
+                    return document.getElementById("box").innerHTML = firstConst + operation;
+                }
+                else if (digit === " ÷ ") {
+                    firstConst2 = Number(firstConst);
+                    secondConst2 = Number(secondConst);
+                    operation = digit;
+                    return document.getElementById("box").innerHTML = firstConst + operation;
+                }      
                 else if (digit === 'c') {
                     firstConst = "";
+                    secondConst = "";
+                    operation = "";
                     return document.getElementById("box").innerHTML = "0";
                 }   
-                else {     
-                    document.getElementById("box").innerHTML = "Answer";
-                    firstConst = " ";
+                else if (digit === "="){    
+                    if (operation === " + ") { 
+                        firstConst2 = Number(firstConst);
+                        secondConst2 = Number(secondConst);
+                        document.getElementById("box").innerHTML = firstConst2 + secondConst2;
+                    }
+                    else if (digit === " - ") {
+                        firstConst2 = Number(firstConst);
+                        secondConst2 = Number(secondConst);
+                        document.getElementById("box").innerHTML = firstConst2 - secondConst2;
+                    }
+                    else if (digit === " x ") {
+                        firstConst2 = Number(firstConst);
+                        secondConst2 = Number(secondConst);
+                        document.getElementById("box").innerHTML = firstConst2 - secondConst2;
+                    }
+                    else if (digit === " ÷ ") {
+                        firstConst2 = Number(firstConst);
+                        secondConst2 = Number(secondConst);
+                        document.getElementById("box").innerHTML = firstConst2 / secondConst2;
+                    }
                 }
             }
         </script>
@@ -58,19 +88,19 @@
                 <button onclick="input('c')"> C </button>
                 <button onclick="input('+/-')"> +/- </button>
                 <button onclick="input('%')"> % </button>
-                <button onclick="input('÷')"> ÷ </button>
+                <button onclick="input(' ÷ ')"> ÷ </button>
                 <button onclick="input(7)"> 7 </button>
                 <button onclick="input(8)"> 8 </button>
                 <button onclick="input(9)"> 9 </button>
-                <button onclick="input('x')"> X </button>
+                <button onclick="input(' x ')"> X </button>
                 <button onclick="input(4)"> 4 </button>
                 <button onclick="input(5)"> 5 </button>
                 <button onclick="input(6)"> 6 </button>
-                <button onclick="input('-')"> - </button>
+                <button onclick="input(' - ')"> - </button>
                 <button onclick="input(1)"> 1 </button>
                 <button onclick="input(2)"> 2 </button>
                 <button onclick="input(3)"> 3 </button>
-                <button onclick="input('+')"> + </button>
+                <button onclick="input(' + ')"> + </button>
                 <button id="zero" onclick="input(0)"> 0 </button>
                 <button onclick="input('.')"> . </button>
                 <button onclick="input('=')"> = </button>
