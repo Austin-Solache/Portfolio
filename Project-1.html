@@ -11,14 +11,38 @@
             let firstConst = "";
             let secondConst = "";
             function input(digit) { 
-                    if (Number.isFinite(digit) === true)  {
+                if (Number.isFinite(digit) === true)  {
                     let str = digit.toString();
                     firstConst = firstConst + str ;
+                    str = "";
                     return document.getElementById("box").innerHTML = firstConst;
-                }   else if (digit = 'c') {
+                }   
+                else if (digit === "+") {
+                    firstConst = firstConst + " + ";
+                    return document.getElementById("box").innerHTML = firstConst;
+                }   
+                else if (digit === "-") {
+                    firstConst = firstConst + " - ";
+                    return document.getElementById("box").innerHTML = firstConst;
+                }
+                else if (digit === "x") {
+                    firstConst = firstConst + " x ";
+                    return document.getElementById("box").innerHTML = firstConst;
+                }
+                else if (digit === "÷") {
+                    firstConst = firstConst + " ÷ ";
+                    return document.getElementById("box").innerHTML = firstConst;
+                }      
+                else if (Number.isFinite(digit) === true) {
+                    let str = digit.toString();
+                    secondConst = secondConst + str;
+                    return document.getElementById("box").innerHTML = firstConst + secondConst;
+                }
+                else if (digit === 'c') {
                     firstConst = "";
-                    document.getElementById("box").innerHTML = "0";
-                }   else {     
+                    return document.getElementById("box").innerHTML = "0";
+                }   
+                else {     
                     document.getElementById("box").innerHTML = "Answer";
                     firstConst = " ";
                 }
@@ -38,7 +62,7 @@
                 <button onclick="input(7)"> 7 </button>
                 <button onclick="input(8)"> 8 </button>
                 <button onclick="input(9)"> 9 </button>
-                <button onclick="input('X')"> X </button>
+                <button onclick="input('x')"> X </button>
                 <button onclick="input(4)"> 4 </button>
                 <button onclick="input(5)"> 5 </button>
                 <button onclick="input(6)"> 6 </button>
