@@ -11,6 +11,7 @@
             let firstConst = "";
             let secondConst = "";
             let operation = "";
+            let answer = "";
             function input(digit) { 
                 if (Number.isFinite(digit) === true)  {
                    if (operation === "" ) {
@@ -19,12 +20,18 @@
                     str = "";
                     return document.getElementById("box").innerHTML = firstConst + operation;
                 }
-                else {
-                    let str = digit.toString();
-                    secondConst = secondConst + str ;
-                    str = "";
-                    return document.getElementById("box").innerHTML = firstConst + operation + secondConst;
+                    else if (Number.isFinite(digit) == true & answer != "") {
+                        let str = digit.toString();
+                        firstConst = answer + str ;
+                        str = "";
+                        return document.getElementById("box").innerHTML = firstConst + operation;
                 }
+                    else {
+                        let str = digit.toString();
+                        secondConst = secondConst + str ;
+                        str = "";
+                        return document.getElementById("box").innerHTML = firstConst + operation + secondConst;
+                    }
                 }   
                 else if (digit === " + ") {
                     operation = digit;
@@ -56,24 +63,32 @@
                 }   
                 else if (digit === " = "){    
                     if (operation === " + ") { 
-                        firstConst2 = Number(firstConst);
-                        secondConst2 = Number(secondConst);
-                        document.getElementById("box").innerHTML = firstConst2 + secondConst2;
+                        firstConst = Number(firstConst);
+                        secondConst = Number(secondConst);
+                        let answer = firstConst + secondConst;
+                        document.getElementById("box").innerHTML = answer;
+                        secondConst = '';
                     }
                     else if (operation === " - ") {
-                        firstConst2 = Number(firstConst);
-                        secondConst2 = Number(secondConst);
-                        document.getElementById("box").innerHTML = firstConst2 - secondConst2;
+                        firstConst = Number(firstConst);
+                        secondConst = Number(secondConst);
+                        let answer = firstConst - secondConst;
+                        document.getElementById("box").innerHTML = answer;
+                        secondConst = '';
                     }
                     else if (operation === " x ") {
-                        firstConst2 = Number(firstConst);
-                        secondConst2 = Number(secondConst);
-                        document.getElementById("box").innerHTML = firstConst2 * secondConst2;
+                        firstConst = Number(firstConst);
+                        secondConst = Number(secondConst);
+                         let answer = firstConst * secondConst;
+                        document.getElementById("box").innerHTML = answer;
+                        secondConst = '';
                     }
                     else if (operation === " ÷ ") {
-                        firstConst2 = Number(firstConst);
-                        secondConst2 = Number(secondConst);
-                        document.getElementById("box").innerHTML = firstConst2 / secondConst2;
+                        firstConst = Number(firstConst);
+                        secondConst = Number(secondConst);
+                         let answer = firstConst / secondConst;
+                        document.getElementById("box").innerHTML = answer;
+                        secondConst = '';
                     }
                 }
             }
