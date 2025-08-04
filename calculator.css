@@ -40,8 +40,8 @@ footer, header, hgroup, menu, nav, section {
     display: grid;
     grid-template-columns: 100px 100px 100px 100px; 
     grid-template-rows: auto auto; 
-    width:600px;
-    height: 700px;
+    width:550px;
+    height: 720px;
     gap: 25px;
     justify-content: center;
     align-items: center;
@@ -56,7 +56,7 @@ footer, header, hgroup, menu, nav, section {
     height: 100px;
     width: 100px;
     border-radius: 10px;
-    font-size: 40px;
+    font-size: 50px;
 }
 button:hover {
     color: red;
@@ -65,9 +65,11 @@ button:hover {
     display: flex;
     position: absolute;
     height: 75px;
-    width: 550px;
-    justify-content: center;
+    width: 490px;
+    justify-content: right;
     align-items: center;
+    padding-right: 35px ;
     top: 70px;
     background-color: whitesmoke;
+    font-size: 70px;
 }

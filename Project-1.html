@@ -54,23 +54,23 @@
                     operation = "";
                     return document.getElementById("box").innerHTML = "0";
                 }   
-                else if (digit === "="){    
+                else if (digit === " = "){    
                     if (operation === " + ") { 
                         firstConst2 = Number(firstConst);
                         secondConst2 = Number(secondConst);
                         document.getElementById("box").innerHTML = firstConst2 + secondConst2;
                     }
-                    else if (digit === " - ") {
+                    else if (operation === " - ") {
                         firstConst2 = Number(firstConst);
                         secondConst2 = Number(secondConst);
                         document.getElementById("box").innerHTML = firstConst2 - secondConst2;
                     }
-                    else if (digit === " x ") {
+                    else if (operation === " x ") {
                         firstConst2 = Number(firstConst);
                         secondConst2 = Number(secondConst);
-                        document.getElementById("box").innerHTML = firstConst2 - secondConst2;
+                        document.getElementById("box").innerHTML = firstConst2 * secondConst2;
                     }
-                    else if (digit === " ÷ ") {
+                    else if (operation === " ÷ ") {
                         firstConst2 = Number(firstConst);
                         secondConst2 = Number(secondConst);
                         document.getElementById("box").innerHTML = firstConst2 / secondConst2;
@@ -103,7 +103,7 @@
                 <button onclick="input(' + ')"> + </button>
                 <button id="zero" onclick="input(0)"> 0 </button>
                 <button onclick="input('.')"> . </button>
-                <button onclick="input('=')"> = </button>
+                <button onclick="input(' = ')"> = </button>
             </section>
         </section>    
     </body>
