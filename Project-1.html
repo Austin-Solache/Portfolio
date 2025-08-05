@@ -8,87 +8,88 @@
     <link rel="stylesheet" href="calculator.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <script>
-            let firstConst = "";
-            let secondConst = "";
+            let firstOperand = "";
+            let secondOperand = "";
             let operation = "";
             let answer = "";
+            let str = "";
+            //Main function for calculator
             function input(digit) { 
+                // if statement checks if digit is a finite Number to start and operation is Null then enters firstOperand
                 if (Number.isFinite(digit) === true)  {
                    if (operation === "" ) {
-                   let str = digit.toString();
-                    firstConst = firstConst + str ;
+                   str = digit.toString();
+                    firstOperand = firstOperand + str ;
                     str = "";
-                    return document.getElementById("box").innerHTML = firstConst + operation;
+                    return document.getElementById("box").innerHTML = firstOperand;
                 }
+                // else if statement to check finite number and answer isn't NUll to make arithmetic continuous
                     else if (Number.isFinite(digit) == true & answer != "") {
-                        let str = digit.toString();
-                        firstConst = answer + str ;
+                        str = digit.toString();
+                        firstOperand = answer + str ;
                         str = "";
-                        return document.getElementById("box").innerHTML = firstConst + operation;
+                        return document.getElementById("box").innerHTML = firstOperand;
                 }
-                    else {
-                        let str = digit.toString();
-                        secondConst = secondConst + str ;
+                // else if checks operation isn't null to enter the secondOperand
+                    else if (operation != "") {
+                        str = digit.toString();
+                        secondOperand = secondOperand + str ;
                         str = "";
-                        return document.getElementById("box").innerHTML = firstConst + operation + secondConst;
+                        return document.getElementById("box").innerHTML = firstOperand + operation + secondOperand;
                     }
                 }   
+                // Multiple else if to display firstOperand and operation (+, -, *, /)
                 else if (digit === " + ") {
                     operation = digit;
-                    return document.getElementById("box").innerHTML = firstConst + operation;
+                    return document.getElementById("box").innerHTML = firstOperand + operation;
                 }   
                 else if (digit === " - ") {
-                    firstConst2 = Number(firstConst);
-                    secondConst2 = Number(secondConst);
                     operation = digit;
-                    return document.getElementById("box").innerHTML = firstConst + operation;
+                    return document.getElementById("box").innerHTML = firstOperand + operation;
                 }
                 else if (digit === " x ") {
-                    firstConst2 = Number(firstConst);
-                    secondConst2 = Number(secondConst);
                     operation = digit;
-                    return document.getElementById("box").innerHTML = firstConst + operation;
+                    return document.getElementById("box").innerHTML = firstOperand + operation;
                 }
                 else if (digit === " ÷ ") {
-                    firstConst2 = Number(firstConst);
-                    secondConst2 = Number(secondConst);
                     operation = digit;
-                    return document.getElementById("box").innerHTML = firstConst + operation;
+                    return document.getElementById("box").innerHTML = firstOperand + operation;
                 }      
                 else if (digit === 'c') {
-                    firstConst = "";
-                    secondConst = "";
+                    firstOperand = "";
+                    secondOperand = "";
                     operation = "";
                     return document.getElementById("box").innerHTML = "0";
                 }   
+                // Multiple else if to do the arithmetic for operations
                 else if (digit === " = "){    
                     if (operation === " + ") { 
-                        firstConst = Number(firstConst);
-                        secondConst = Number(secondConst);
-                        let answer = firstConst + secondConst;
+                        firstOperand = Number(firstOperand);
+                        secondOperand = Number(secondOperand);
+                        let answer = firstOperand + secondOperand;
                         document.getElementById("box").innerHTML = answer;
-                        secondConst = '';
+                        secondOperand = '';
                     }
                     else if (operation === " - ") {
-                        firstConst = Number(firstConst);
-                        secondConst = Number(secondConst);
-                        let answer = firstConst - secondConst;
+                        firstOperand = Number(firstOperand);
+                        secondOperand = Number(secondOperand);
+                        let answer = firstOperand - secondOperand;
                         document.getElementById("box").innerHTML = answer;
-                        secondConst = '';
+                        secondOperand = '';
                     }
                     else if (operation === " x ") {
-                        firstConst = Number(firstConst);
-                        secondConst = Number(secondConst);
-                         let answer = firstConst * secondConst;
+                        firstOperand = Number(firstOperand);
+                        secondOperand = Number(secondOperand);
+                         let answer = firstOperand * secondOperand;
                         document.getElementById("box").innerHTML = answer;
-                        secondConst = '';
+                        secondOperand = '';
                     }
                     else if (operation === " ÷ ") {
-                        firstConst = Number(firstConst);
-                        secondConst = Number(secondConst);
-                         let answer = firstConst / secondConst;
+                        firstOperand = Number(firstOperand);
+                        secondOperand = Number(secondOperand);
+                         let answer = firstOperand / secondOperand;
                         document.getElementById("box").innerHTML = answer;
-                        secondConst = '';
+                        secondOperand = '';
                     }
                 }
             }
