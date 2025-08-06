@@ -13,7 +13,7 @@
             let operation = "";
             let answer = "";
             let str = "";
-            //Main function for calculator
+            //
             function input(digit) { 
                 // if statement checks if digit is a finite Number to start and operation is Null then enters firstOperand
                 if (Number.isFinite(digit) === true)  {
@@ -61,8 +61,10 @@
                     operation = "";
                     return document.getElementById("box").innerHTML = "0";
                 }   
-                // Multiple else if to do the arithmetic for operations
-                else if (digit === " = "){    
+            }
+            // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
+            function math() {    
+                // Each If/Else if converts Operands into Ints and displays the answer.
                     if (operation === " + ") { 
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
@@ -92,7 +94,6 @@
                         secondOperand = '';
                     }
                 }
-            }
         </script>
     </head>
     <body>      
@@ -119,7 +120,7 @@
                 <button onclick="input(' + ')"> + </button>
                 <button id="zero" onclick="input(0)"> 0 </button>
                 <button onclick="input('.')"> . </button>
-                <button onclick="input(' = ')"> = </button>
+                <button onclick="math()"> = </button>
             </section>
         </section>    
     </body>
