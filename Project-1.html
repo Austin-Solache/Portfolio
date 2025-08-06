@@ -10,83 +10,79 @@
         <script>
             let firstOperand = "";
             let secondOperand = "";
-            let operation = "";
+            let operator = "";
             let answer = "";
             let str = "";
-            //
-            function input(digit) { 
-                // if statement checks if digit is a finite Number to start and operation is Null then enters firstOperand
-                if (Number.isFinite(digit) === true)  {
-                   if (operation === "" ) {
-                   str = digit.toString();
+            // Inserts first operand + operator + second operand
+            function operand(input) { 
+                // if statement checks if input is a finite Number to start and operator is Null then enters firstOperand
+                if (Number.isFinite(input) === true && operator === "")  {
+                    str = input.toString();
                     firstOperand = firstOperand + str ;
                     str = "";
                     return document.getElementById("box").innerHTML = firstOperand;
+                } // else if statement to check finite number and answer isn't NUll to make arithmetic continuous
+                else if (Number.isFinite(answer) === true) {
+                    str = answer.toString();
+                    firstOperand = str;
+                    str = "";
+                    answer = "";
+                } // else if checks operator isn't null to enter the secondOperand
+                else if (operator != "") {
+                    str = input.toString();
+                    secondOperand = secondOperand + str ;
+                    str = "";
+                    return document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
                 }
-                // else if statement to check finite number and answer isn't NUll to make arithmetic continuous
-                    else if (Number.isFinite(digit) == true && answer != "") {
-                        str = answer.toString();
-                        firstOperand = str;
-                        str = "";
-                        answer = "";
-                }
-                // else if checks operation isn't null to enter the secondOperand
-                    else if (operation != "") {
-                        str = digit.toString();
-                        secondOperand = secondOperand + str ;
-                        str = "";
-                        return document.getElementById("box").innerHTML = firstOperand + operation + secondOperand;
-                    }
+                } 
+            
+                // Multiple else if to display firstOperand and operator (+, -, *, /)
+            function operation(operator) {    
+                if (operator === " + " ) {
+                    return document.getElementById("box").innerHTML = firstOperand + operator;
                 }   
-                // Multiple else if to display firstOperand and operation (+, -, *, /)
-                else if (digit === " + " ) {
-                    operation = digit;
-                    return document.getElementById("box").innerHTML = firstOperand + operation;
-                }   
-                else if (digit === " - ") {
-                    operation = digit;
-                    return document.getElementById("box").innerHTML = firstOperand + operation;
+                else if (operator === " - ") {
+                    return document.getElementById("box").innerHTML = firstOperand + operator;
                 }
-                else if (digit === " x ") {
-                    operation = digit;
-                    return document.getElementById("box").innerHTML = firstOperand + operation;
+                else if (operator === " x ") {
+                    return document.getElementById("box").innerHTML = firstOperand + operator;
                 }
-                else if (digit === " ÷ ") {
-                    operation = digit;
-                    return document.getElementById("box").innerHTML = firstOperand + operation;
+                else if (operator === " ÷ ") {
+                    return document.getElementById("box").innerHTML = firstOperand + operator;
                 }      
-                else if (digit === 'c') {
+                else if (operator === 'c') {
                     firstOperand = "";
                     secondOperand = "";
-                    operation = "";
+                    operator = "";
                     return document.getElementById("box").innerHTML = "0";
                 }   
             }
             // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
             function math() {    
                 // Each If/Else if converts Operands into Ints and displays the answer.
-                    if (operation === " + ") { 
+                    if (operator === " + ") { 
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand + secondOperand;
                         document.getElementById("box").innerHTML = answer;
+                        firstOperand = '';
                         secondOperand = '';
                     }
-                    else if (operation === " - ") {
+                    else if (operator === " - ") {
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand - secondOperand;
                         document.getElementById("box").innerHTML = answer;
                         secondOperand = '';
                     }
-                    else if (operation === " x ") {
+                    else if (operator === " x ") {
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                          answer = firstOperand * secondOperand;
                         document.getElementById("box").innerHTML = answer;
                         secondOperand = '';
                     }
-                    else if (operation === " ÷ ") {
+                    else if (operator === " ÷ ") {
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand / secondOperand;
@@ -102,24 +98,24 @@
                 <p id="box">0</p>
             </section>
             <section id="buttons">
-                <button onclick="input('c')"> C </button>
-                <button onclick="input('+/-')"> +/- </button>
-                <button onclick="input('%')"> % </button>
-                <button onclick="input(' ÷ ')"> ÷ </button>
-                <button onclick="input(7)"> 7 </button>
-                <button onclick="input(8)"> 8 </button>
-                <button onclick="input(9)"> 9 </button>
-                <button onclick="input(' x ')"> X </button>
-                <button onclick="input(4)"> 4 </button>
-                <button onclick="input(5)"> 5 </button>
-                <button onclick="input(6)"> 6 </button>
-                <button onclick="input(' - ')"> - </button>
-                <button onclick="input(1)"> 1 </button>
-                <button onclick="input(2)"> 2 </button>
-                <button onclick="input(3)"> 3 </button>
-                <button onclick="input(' + ')"> + </button>
-                <button id="zero" onclick="input(0)"> 0 </button>
-                <button onclick="input('.')"> . </button>
+                <button onclick="operation('c')"> C </button>
+                <button onclick="operand('+/-')"> +/- </button>
+                <button onclick="operand('%')"> % </button>
+                <button onclick="operation(' ÷ ')"> ÷ </button>
+                <button onclick="operand(7)"> 7 </button>
+                <button onclick="operand(8)"> 8 </button>
+                <button onclick="operand(9)"> 9 </button>
+                <button onclick="operation(' x ')"> X </button>
+                <button onclick="operand(4)"> 4 </button>
+                <button onclick="operand(5)"> 5 </button>
+                <button onclick="operand(6)"> 6 </button>
+                <button onclick="operation(' - ')"> - </button>
+                <button onclick="operand(1)"> 1 </button>
+                <button onclick="operand(2)"> 2 </button>
+                <button onclick="operand(3)"> 3 </button>
+                <button onclick="operation(' + ')"> + </button>
+                <button id="zero" onclick="operand(0)"> 0 </button>
+                <button onclick="operand('.')"> . </button>
                 <button onclick="math()"> = </button>
             </section>
         </section>    
