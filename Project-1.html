@@ -16,41 +16,40 @@
             // Inserts first operand + operator + second operand
             function operand(input) { 
                 // if statement checks if input is a finite Number to start and operator is Null then enters firstOperand
-                if (Number.isFinite(input) === true && operator === "")  {
+                if (Number.isFinite(input) === true && operator == "")  {
                     str = input.toString();
                     firstOperand = firstOperand + str ;
                     str = "";
                     return document.getElementById("box").innerHTML = firstOperand;
                 } // else if statement to check finite number and answer isn't NUll to make arithmetic continuous
-                else if (Number.isFinite(answer) === true) {
-                    str = answer.toString();
-                    firstOperand = str;
-                    str = "";
-                    answer = "";
-                } // else if checks operator isn't null to enter the secondOperand
-                else if (operator != "") {
+                 // else if checks operator isn't null to enter the secondOperand
+                else if (Number.isFinite(input) === true && operator != "") {
                     str = input.toString();
                     secondOperand = secondOperand + str ;
                     str = "";
                     return document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
                 }
-                } 
+            } 
             
                 // Multiple else if to display firstOperand and operator (+, -, *, /)
-            function operation(operator) {    
-                if (operator === " + " ) {
+            function operation(input) {    
+                if (input === " + ") {
+                    operator = input;
                     return document.getElementById("box").innerHTML = firstOperand + operator;
                 }   
-                else if (operator === " - ") {
+                else if (input === " - ") {
+                    operator = input;
                     return document.getElementById("box").innerHTML = firstOperand + operator;
                 }
-                else if (operator === " x ") {
+                else if (input === " x ") {
+                    operator = input;
                     return document.getElementById("box").innerHTML = firstOperand + operator;
                 }
-                else if (operator === " ÷ ") {
+                else if (input === " ÷ ") {
+                    operator = input;
                     return document.getElementById("box").innerHTML = firstOperand + operator;
                 }      
-                else if (operator === 'c') {
+                else if (input === 'c') {
                     firstOperand = "";
                     secondOperand = "";
                     operator = "";
@@ -65,7 +64,7 @@
                         secondOperand = Number(secondOperand);
                         answer = firstOperand + secondOperand;
                         document.getElementById("box").innerHTML = answer;
-                        firstOperand = '';
+                        firstOperand = answer;
                         secondOperand = '';
                     }
                     else if (operator === " - ") {
@@ -73,6 +72,7 @@
                         secondOperand = Number(secondOperand);
                         answer = firstOperand - secondOperand;
                         document.getElementById("box").innerHTML = answer;
+                        firstOperand = answer;
                         secondOperand = '';
                     }
                     else if (operator === " x ") {
@@ -80,6 +80,7 @@
                         secondOperand = Number(secondOperand);
                          answer = firstOperand * secondOperand;
                         document.getElementById("box").innerHTML = answer;
+                        firstOperand = answer;
                         secondOperand = '';
                     }
                     else if (operator === " ÷ ") {
@@ -87,6 +88,7 @@
                         secondOperand = Number(secondOperand);
                         answer = firstOperand / secondOperand;
                         document.getElementById("box").innerHTML = answer;
+                        firstOperand = answer;
                         secondOperand = '';
                     }
                 }
