@@ -13,6 +13,7 @@
             let operator = "";
             let answer = "";
             let str = "";
+            let display = " 0 ";
             // Inserts first operand + operator + second operand
             function operand(input) { 
                 // if statement checks if input is a finite Number to start and operator is Null then enters firstOperand
@@ -20,8 +21,8 @@
                     str = input.toString();
                     firstOperand = firstOperand + str ;
                     str = "";
-                    return document.getElementById("box").innerHTML = firstOperand;
-                } // else if statement to check finite number and answer isn't NUll to make arithmetic continuous
+                    return document.getElementById("box").innerHTML = firstOperand
+                }
                  // else if checks operator isn't null to enter the secondOperand
                 else if (Number.isFinite(input) === true && operator != "") {
                     str = input.toString();
@@ -31,7 +32,7 @@
                 }
             } 
             
-                // Multiple else if to display firstOperand and operator (+, -, *, /)
+            // Multiple else if to display firstOperand and operator (+, -, *, /)
             function operation(input) {    
                 if (input === " + ") {
                     operator = input;
@@ -49,7 +50,23 @@
                     operator = input;
                     return document.getElementById("box").innerHTML = firstOperand + operator;
                 }      
-                else if (input === 'c') {
+                else if (input === "+/-" && secondOperand == "") {
+                    firstOperand =  -firstOperand;
+                    return document.getElementById("box").innerHTML = firstOperand;
+                }
+                else if (input === "+/-" && secondOperand != "") {
+                    secondOperand = -secondOperand;
+                    return document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
+                }
+                else if (input === "." && secondOperand == "") {
+                    firstOperand = firstOperand + ".";
+                    return document.getElementById("box").innerHTML = firstOperand;
+                }
+                 else if (input === "." && secondOperand != "") {
+                    secondOperand = secondOperand + ".";
+                    return document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
+                }
+                else if (input === "c") {
                     firstOperand = "";
                     secondOperand = "";
                     operator = "";
@@ -63,6 +80,7 @@
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand + secondOperand;
+                        answer = answer.toFixed(2);
                         document.getElementById("box").innerHTML = answer;
                         firstOperand = answer;
                         secondOperand = '';
@@ -71,6 +89,7 @@
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand - secondOperand;
+                        answer = answer.toFixed(2);
                         document.getElementById("box").innerHTML = answer;
                         firstOperand = answer;
                         secondOperand = '';
@@ -78,7 +97,8 @@
                     else if (operator === " x ") {
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
-                         answer = firstOperand * secondOperand;
+                        answer = firstOperand * secondOperand;
+                        answer = answer.toFixed(2);
                         document.getElementById("box").innerHTML = answer;
                         firstOperand = answer;
                         secondOperand = '';
@@ -87,6 +107,7 @@
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand / secondOperand;
+                        answer = answer.toFixed(2);
                         document.getElementById("box").innerHTML = answer;
                         firstOperand = answer;
                         secondOperand = '';
@@ -101,7 +122,7 @@
             </section>
             <section id="buttons">
                 <button onclick="operation('c')"> C </button>
-                <button onclick="operand('+/-')"> +/- </button>
+                <button onclick="operation('+/-')"> +/- </button>
                 <button onclick="operand('%')"> % </button>
                 <button onclick="operation(' ÷ ')"> ÷ </button>
                 <button onclick="operand(7)"> 7 </button>
@@ -117,7 +138,7 @@
                 <button onclick="operand(3)"> 3 </button>
                 <button onclick="operation(' + ')"> + </button>
                 <button id="zero" onclick="operand(0)"> 0 </button>
-                <button onclick="operand('.')"> . </button>
+                <button onclick="operation('.')"> . </button>
                 <button onclick="math()"> = </button>
             </section>
         </section>    
