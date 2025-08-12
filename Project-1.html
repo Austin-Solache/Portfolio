@@ -21,14 +21,14 @@
                     str = input.toString();
                     firstOperand = firstOperand + str ;
                     str = "";
-                    return document.getElementById("box").innerHTML = firstOperand
+                    document.getElementById("box").innerHTML = firstOperand
                 }
                  // else if checks operator isn't null to enter the secondOperand
                 else if (Number.isFinite(input) === true && operator != "") {
                     str = input.toString();
                     secondOperand = secondOperand + str ;
                     str = "";
-                    return document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
+                    document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
                 }
             } 
             
@@ -36,41 +36,41 @@
             function operation(input) {    
                 if (input === " + ") {
                     operator = input;
-                    return document.getElementById("box").innerHTML = firstOperand + operator;
+                    document.getElementById("box").innerHTML = firstOperand + operator;
                 }   
                 else if (input === " - ") {
                     operator = input;
-                    return document.getElementById("box").innerHTML = firstOperand + operator;
+                    document.getElementById("box").innerHTML = firstOperand + operator;
                 }
                 else if (input === " x ") {
                     operator = input;
-                    return document.getElementById("box").innerHTML = firstOperand + operator;
+                    document.getElementById("box").innerHTML = firstOperand + operator;
                 }
                 else if (input === " ÷ ") {
                     operator = input;
-                    return document.getElementById("box").innerHTML = firstOperand + operator;
+                    document.getElementById("box").innerHTML = firstOperand + operator;
                 }      
                 else if (input === "+/-" && secondOperand == "") {
                     firstOperand =  -firstOperand;
-                    return document.getElementById("box").innerHTML = firstOperand;
+                    document.getElementById("box").innerHTML = firstOperand;
                 }
                 else if (input === "+/-" && secondOperand != "") {
                     secondOperand = -secondOperand;
-                    return document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
+                    document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
                 }
                 else if (input === "." && secondOperand == "") {
                     firstOperand = firstOperand + ".";
-                    return document.getElementById("box").innerHTML = firstOperand;
+                    document.getElementById("box").innerHTML = firstOperand;
                 }
                  else if (input === "." && secondOperand != "") {
                     secondOperand = secondOperand + ".";
-                    return document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
+                    document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
                 }
                 else if (input === "c") {
                     firstOperand = "";
                     secondOperand = "";
                     operator = "";
-                    return document.getElementById("box").innerHTML = "0";
+                    document.getElementById("box").innerHTML = "0";
                 }   
             }
             // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
