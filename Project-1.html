@@ -49,8 +49,10 @@
                 else if (input === " ÷ ") {
                     operator = input;
                     document.getElementById("box").innerHTML = firstOperand + operator;
-                }      
-                else if (input === "+/-" && secondOperand == "") {
+                }
+            }
+            function special(input) {       
+                if (input === "+/-" && secondOperand == "") {
                     firstOperand =  -firstOperand;
                     document.getElementById("box").innerHTML = firstOperand;
                 }
@@ -63,6 +65,14 @@
                     document.getElementById("box").innerHTML = firstOperand;
                 }
                  else if (input === "." && secondOperand != "") {
+                    secondOperand = secondOperand + ".";
+                    document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
+                }
+                else if (input === "%" && secondOperand == "") {
+                    firstOperand = firstOperand + "%";
+                    document.getElementById("box").innerHTML = firstOperand;
+                }
+                 else if (input === "%" && secondOperand != "") {
                     secondOperand = secondOperand + ".";
                     document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
                 }
@@ -80,7 +90,7 @@
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand + secondOperand;
-                        answer = answer.toFixed(2);
+                        answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
                         firstOperand = answer;
                         secondOperand = '';
@@ -89,7 +99,7 @@
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand - secondOperand;
-                        answer = answer.toFixed(2);
+                        answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
                         firstOperand = answer;
                         secondOperand = '';
@@ -98,7 +108,7 @@
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand * secondOperand;
-                        answer = answer.toFixed(2);
+                        answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
                         firstOperand = answer;
                         secondOperand = '';
@@ -107,7 +117,7 @@
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand / secondOperand;
-                        answer = answer.toFixed(2);
+                        answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
                         firstOperand = answer;
                         secondOperand = '';
@@ -121,9 +131,9 @@
                 <p id="box">0</p>
             </section>
             <section id="buttons">
-                <button onclick="operation('c')"> C </button>
-                <button onclick="operation('+/-')"> +/- </button>
-                <button onclick="operand('%')"> % </button>
+                <button onclick="special('c')"> C </button>
+                <button onclick="special('+/-')"> +/- </button>
+                <button onclick="special('%')"> % </button>
                 <button onclick="operation(' ÷ ')"> ÷ </button>
                 <button onclick="operand(7)"> 7 </button>
                 <button onclick="operand(8)"> 8 </button>
@@ -138,7 +148,7 @@
                 <button onclick="operand(3)"> 3 </button>
                 <button onclick="operation(' + ')"> + </button>
                 <button id="zero" onclick="operand(0)"> 0 </button>
-                <button onclick="operation('.')"> . </button>
+                <button onclick="special('.')"> . </button>
                 <button onclick="math()"> = </button>
             </section>
         </section>    
