@@ -38,13 +38,13 @@
                     operator = input;
                     document.getElementById("box").innerHTML = firstOperand + operator;
             }
-
+            // Makes Operands into negative #, percent, and adds decimal points.
             function special(input) {       
                 if (input === "+/-" && secondOperand == "") {
-                    firstOperand =  -firstOperand;
+                    firstOperand =  "-" + firstOperand;
                 }
                 else if (input === "+/-" && secondOperand != "") {
-                    secondOperand = -secondOperand;
+                    secondOperand = "-" + secondOperand;
                 }
                 else if (input === "." &&  (!firstOperand.includes(".")) && (!firstOperand.includes("%"))) {
                     firstOperand = firstOperand + ".";
@@ -54,9 +54,8 @@
                 }
                 else if (input === "%" && (!firstOperand.includes("%")) && firstOperand != "") {
                     firstOperand = firstOperand + "%";
-                    document.getElementById("box").innerHTML =  firstOperand + operator;
                 }
-                 else if (input === "%" && secondOperand != "" && (!secondOperand.includes("%"))) {
+                else if (input === "%" && secondOperand != "" && (!secondOperand.includes("%"))) {
                     secondOperand = secondOperand + "%";
                 }
                 else if (input === "c") {
@@ -72,6 +71,7 @@
 
             // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
             function math() {    
+            // Checks if Operands are percentages and converts them to decimals
                 if (firstOperand.includes("%") && secondOperand.includes("%")) {
                     firstOperand = .01 * firstOperand.replace("%", "");
                     secondOperand = .01 * secondOperand.replace("%", "");
@@ -82,8 +82,10 @@
                 else if (secondOperand.includes("%")) {
                     secondOperand = .01 * secondOperand.replace("%", "");
                     }
+
                 firstOperand = Number(firstOperand);
                 secondOperand = Number(secondOperand);
+                
                 if (operator === " + ") { 
                     answer = firstOperand + secondOperand;
                     answer = Math.ceil(answer * 100) / 100;
