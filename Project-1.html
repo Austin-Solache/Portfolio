@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Austin Solache</title>
+    <title>Calculator Project</title>
     <link rel="stylesheet" href="calculator.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <script>
@@ -42,19 +42,15 @@
             function special(input) {       
                 if (input === "+/-" && secondOperand == "") {
                     firstOperand =  -firstOperand;
-                    document.getElementById("box").innerHTML = firstOperand;
                 }
                 else if (input === "+/-" && secondOperand != "") {
                     secondOperand = -secondOperand;
-                    document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
                 }
                 else if (input === "." &&  (!firstOperand.includes(".")) && (!firstOperand.includes("%"))) {
                     firstOperand = firstOperand + ".";
-                    document.getElementById("box").innerHTML = firstOperand;
                 }
                  else if (input === "." && operator != "" && (!secondOperand.includes(".")) && (!secondOperand.includes("%"))) {
                     secondOperand = secondOperand + ".";
-                    document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
                 }
                 else if (input === "%" && (!firstOperand.includes("%")) && firstOperand != "") {
                     firstOperand = firstOperand + "%";
@@ -62,7 +58,6 @@
                 }
                  else if (input === "%" && secondOperand != "" && (!secondOperand.includes("%"))) {
                     secondOperand = secondOperand + "%";
-                    document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
                 }
                 else if (input === "c") {
                     firstOperand = "";
@@ -72,6 +67,8 @@
                     percent2 = "";
                     document.getElementById("box").innerHTML = "0";
                 }   
+
+                document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
             }
 
             // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
