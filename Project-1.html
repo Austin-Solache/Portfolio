@@ -67,44 +67,39 @@
                     percent2 = "";
                     document.getElementById("box").innerHTML = "0";
                 }   
-
                 document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
             }
 
             // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
             function math() {    
-
-                    if (firstOperand.includes("%") && secondOperand.includes("%")) {
-                        firstOperand = .01 * firstOperand.replace("%", "");
-                        secondOperand = .01 * secondOperand.replace("%", "");
+                if (firstOperand.includes("%") && secondOperand.includes("%")) {
+                    firstOperand = .01 * firstOperand.replace("%", "");
+                    secondOperand = .01 * secondOperand.replace("%", "");
                     }
-                    else if (firstOperand.includes("%")) {
-                        firstOperand = .01 * firstOperand.replace("%", "");
+                else if (firstOperand.includes("%")) {
+                    firstOperand = .01 * firstOperand.replace("%", "");
                     }
-                    else if (secondOperand.includes("%")) {
-                        secondOperand = .01 * secondOperand.replace("%", "");
+                else if (secondOperand.includes("%")) {
+                    secondOperand = .01 * secondOperand.replace("%", "");
                     }
-
-                    firstOperand = Number(firstOperand);
-                    secondOperand = Number(secondOperand);
-
-                    if (operator === " + ") { 
-                        answer = firstOperand + secondOperand;
-                        answer = Math.ceil(answer * 100) / 100;
+                firstOperand = Number(firstOperand);
+                secondOperand = Number(secondOperand);
+                if (operator === " + ") { 
+                    answer = firstOperand + secondOperand;
+                    answer = Math.ceil(answer * 100) / 100;
                     }
-                    else if (operator === " - ") {
-                        answer = firstOperand - secondOperand;
-                        answer = Math.ceil(answer * 100) / 100;
+                else if (operator === " - ") {
+                    answer = firstOperand - secondOperand;
+                    answer = Math.ceil(answer * 100) / 100;
                     }
-                    else if (operator === " x ") {
-                        answer = firstOperand * secondOperand;
-                        answer = Math.ceil(answer * 100) / 100;
+                else if (operator === " x ") {
+                    answer = firstOperand * secondOperand;
+                    answer = Math.ceil(answer * 100) / 100;
                     }
-                    else if (operator === " ÷ ") {
-                        answer = firstOperand / secondOperand;
-                        answer = Math.ceil(answer * 100) / 100;
+                else if (operator === " ÷ ") {
+                    answer = firstOperand / secondOperand;
+                    answer = Math.ceil(answer * 100) / 100;
                     }
-
                     document.getElementById("box").innerHTML = answer;
                     firstOperand = answer;
                     secondOperand = '';
