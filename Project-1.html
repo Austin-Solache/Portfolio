@@ -57,13 +57,11 @@
                     document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
                 }
                 else if (input === "%" && (!firstOperand.includes("%")) && firstOperand != "") {
-                    percent = "%";
-                    firstOperand = firstOperand + percent;
+                    firstOperand = firstOperand + "%";
                     document.getElementById("box").innerHTML =  firstOperand + operator;
                 }
                  else if (input === "%" && secondOperand != "" && (!secondOperand.includes("%"))) {
-                    percent2 = "%";
-                    secondOperand = secondOperand + percent2;
+                    secondOperand = secondOperand + "%";
                     document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
                 }
                 else if (input === "c") {
@@ -78,6 +76,18 @@
 
             // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
             function math() {    
+
+                    if (firstOperand.includes("%") && secondOperand.includes("%")) {
+                        firstOperand = .01 * firstOperand.replace("%", "");
+                        secondOperand = .01 * secondOperand.replace("%", "");
+                    }
+                    else if (firstOperand.includes("%")) {
+                        firstOperand = .01 * firstOperand.replace("%", "");
+                    }
+                    else if (secondOperand.includes("%")) {
+                        secondOperand = .01 * secondOperand.replace("%", "");
+                    }
+
                     firstOperand = Number(firstOperand);
                     secondOperand = Number(secondOperand);
 
@@ -96,13 +106,6 @@
                     else if (operator === " ÷ ") {
                         answer = firstOperand / secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
-                    }
-
-                    if (percent === "%" && percent2 === "%") {
-                        answer = answer * .0001;
-                    }
-                    else if (percent === "%") {
-                        answer = answer * .01;
                     }
 
                     document.getElementById("box").innerHTML = answer;
