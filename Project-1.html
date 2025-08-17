@@ -14,6 +14,8 @@
             let answer = "";
             let str = "";
             let display = " 0 ";
+            let percent = "";
+            let percent2 = "";
             // Inserts first operand + operator + second operand
             function operand(input) { 
                 // if statement checks if input is a finite Number to start and operator is Null then enters firstOperand
@@ -34,19 +36,19 @@
             
             // Multiple else if to display firstOperand and operator (+, -, *, /)
             function operation(input) {    
-                if (input === " + ") {
+                if (input === " + " && firstOperand != "") {
                     operator = input;
                     document.getElementById("box").innerHTML = firstOperand + operator;
                 }   
-                else if (input === " - ") {
+                else if (input === " - " && firstOperand != "") {
                     operator = input;
                     document.getElementById("box").innerHTML = firstOperand + operator;
                 }
-                else if (input === " x ") {
+                else if (input === " x " && firstOperand != "") {
                     operator = input;
                     document.getElementById("box").innerHTML = firstOperand + operator;
                 }
-                else if (input === " ÷ ") {
+                else if (input === " ÷ " && firstOperand != "") {
                     operator = input;
                     document.getElementById("box").innerHTML = firstOperand + operator;
                 }
@@ -60,20 +62,22 @@
                     secondOperand = -secondOperand;
                     document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
                 }
-                else if (input === "." && secondOperand == "") {
+                else if (input === "." &&  (!firstOperand.includes(".")) && (!firstOperand.includes("%"))) {
                     firstOperand = firstOperand + ".";
                     document.getElementById("box").innerHTML = firstOperand;
                 }
-                 else if (input === "." && secondOperand != "") {
+                 else if (input === "." && operator != "" && (!secondOperand.includes(".")) && (!secondOperand.includes("%"))) {
                     secondOperand = secondOperand + ".";
                     document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
                 }
-                else if (input === "%" && secondOperand == "") {
-                    firstOperand = firstOperand + "%";
-                    document.getElementById("box").innerHTML = firstOperand;
+                else if (input === "%" && (!firstOperand.includes("%")) && firstOperand != "") {
+                    percent = "%";
+                    firstOperand = firstOperand + percent;
+                    document.getElementById("box").innerHTML =  firstOperand + operator;
                 }
-                 else if (input === "%" && secondOperand != "") {
-                    secondOperand = secondOperand + ".";
+                 else if (input === "%" && secondOperand != "" && (!secondOperand.includes("%"))) {
+                    percent2 = "%";
+                    secondOperand = secondOperand + percent2;
                     document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
                 }
                 else if (input === "c") {
@@ -87,41 +91,55 @@
             function math() {    
                 // Each If/Else if converts Operands into Ints and displays the answer.
                     if (operator === " + ") { 
+                        firstOperand = firstOperand.replace(percent, "");
+                        secondOperand = secondOperand.replace(percent, "");
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand + secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
-                        firstOperand = answer;
-                        secondOperand = '';
                     }
                     else if (operator === " - ") {
+                        firstOperand = firstOperand.replace(percent, "");
+                        secondOperand = secondOperand.replace(percent, "");
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand - secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
-                        firstOperand = answer;
-                        secondOperand = '';
                     }
                     else if (operator === " x ") {
+                        firstOperand = firstOperand.replace(percent, "");
+                        secondOperand = secondOperand.replace(percent, "");
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand * secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
-                        firstOperand = answer;
-                        secondOperand = '';
                     }
                     else if (operator === " ÷ ") {
+                        firstOperand = firstOperand.replace(percent, "");
+                        secondOperand = secondOperand.replace(percent, "");
                         firstOperand = Number(firstOperand);
                         secondOperand = Number(secondOperand);
                         answer = firstOperand / secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
-                        firstOperand = answer;
-                        secondOperand = '';
                     }
+
+                    if (percent === "%" && percent2 === "%") {
+                        answer = answer * .0001;
+                        document.getElementById("box").innerHTML = answer;
+                    }
+                    else if (percent === "%") {
+                        answer = answer * .01;
+                        document.getElementById("box").innerHTML = answer;
+                    }
+
+                    firstOperand = answer;
+                    secondOperand = '';
+                    percent = "";
+                    percent2 = "";
                 }
         </script>
     </head>
