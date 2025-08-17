@@ -23,35 +23,20 @@
                     str = input.toString();
                     firstOperand = firstOperand + str ;
                     str = "";
-                    document.getElementById("box").innerHTML = firstOperand
                 }
                  // else if checks operator isn't null to enter the secondOperand
                 else if (Number.isFinite(input) === true && operator != "") {
                     str = input.toString();
                     secondOperand = secondOperand + str ;
-                    str = "";
-                    document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
+                    str = ""; 
                 }
+                document.getElementById("box").innerHTML = firstOperand + operator + secondOperand;
             } 
             
             // Multiple else if to display firstOperand and operator (+, -, *, /)
             function operation(input) {    
-                if (input === " + " && firstOperand != "") {
                     operator = input;
                     document.getElementById("box").innerHTML = firstOperand + operator;
-                }   
-                else if (input === " - " && firstOperand != "") {
-                    operator = input;
-                    document.getElementById("box").innerHTML = firstOperand + operator;
-                }
-                else if (input === " x " && firstOperand != "") {
-                    operator = input;
-                    document.getElementById("box").innerHTML = firstOperand + operator;
-                }
-                else if (input === " ÷ " && firstOperand != "") {
-                    operator = input;
-                    document.getElementById("box").innerHTML = firstOperand + operator;
-                }
             }
 
             function special(input) {       
@@ -85,6 +70,8 @@
                     firstOperand = "";
                     secondOperand = "";
                     operator = "";
+                    percent = "";
+                    percent2 = "";
                     document.getElementById("box").innerHTML = "0";
                 }   
             }
@@ -97,33 +84,28 @@
                     if (operator === " + ") { 
                         answer = firstOperand + secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
-                        document.getElementById("box").innerHTML = answer;
                     }
                     else if (operator === " - ") {
                         answer = firstOperand - secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
-                        document.getElementById("box").innerHTML = answer;
                     }
                     else if (operator === " x ") {
                         answer = firstOperand * secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
-                        document.getElementById("box").innerHTML = answer;
                     }
                     else if (operator === " ÷ ") {
                         answer = firstOperand / secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
-                        document.getElementById("box").innerHTML = answer;
                     }
 
                     if (percent === "%" && percent2 === "%") {
                         answer = answer * .0001;
-                        document.getElementById("box").innerHTML = answer;
                     }
                     else if (percent === "%") {
                         answer = answer * .01;
-                        document.getElementById("box").innerHTML = answer;
                     }
 
+                    document.getElementById("box").innerHTML = answer;
                     firstOperand = answer;
                     secondOperand = '';
                     percent = "";
