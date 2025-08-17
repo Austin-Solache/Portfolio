@@ -53,6 +53,7 @@
                     document.getElementById("box").innerHTML = firstOperand + operator;
                 }
             }
+
             function special(input) {       
                 if (input === "+/-" && secondOperand == "") {
                     firstOperand =  -firstOperand;
@@ -87,41 +88,28 @@
                     document.getElementById("box").innerHTML = "0";
                 }   
             }
+
             // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
             function math() {    
-                // Each If/Else if converts Operands into Ints and displays the answer.
+                    firstOperand = Number(firstOperand);
+                    secondOperand = Number(secondOperand);
+
                     if (operator === " + ") { 
-                        firstOperand = firstOperand.replace(percent, "");
-                        secondOperand = secondOperand.replace(percent, "");
-                        firstOperand = Number(firstOperand);
-                        secondOperand = Number(secondOperand);
                         answer = firstOperand + secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
                     }
                     else if (operator === " - ") {
-                        firstOperand = firstOperand.replace(percent, "");
-                        secondOperand = secondOperand.replace(percent, "");
-                        firstOperand = Number(firstOperand);
-                        secondOperand = Number(secondOperand);
                         answer = firstOperand - secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
                     }
                     else if (operator === " x ") {
-                        firstOperand = firstOperand.replace(percent, "");
-                        secondOperand = secondOperand.replace(percent, "");
-                        firstOperand = Number(firstOperand);
-                        secondOperand = Number(secondOperand);
                         answer = firstOperand * secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
                     }
                     else if (operator === " ÷ ") {
-                        firstOperand = firstOperand.replace(percent, "");
-                        secondOperand = secondOperand.replace(percent, "");
-                        firstOperand = Number(firstOperand);
-                        secondOperand = Number(secondOperand);
                         answer = firstOperand / secondOperand;
                         answer = Math.ceil(answer * 100) / 100;
                         document.getElementById("box").innerHTML = answer;
