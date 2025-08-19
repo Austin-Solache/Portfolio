@@ -14,8 +14,6 @@
             let answer = "";
             let str = "";
             let display = " 0 ";
-            let percent = "";
-            let percent2 = "";
             // Inserts first operand + operator + second operand
             function operand(input) { 
                 // if statement checks if input is a finite Number to start and operator is Null then enters firstOperand
@@ -35,16 +33,19 @@
             
             // Multiple else if to display firstOperand and operator (+, -, *, /)
             function operation(input) {    
+                if (secondOperand === "") {    
                     operator = input;
                     document.getElementById("box").innerHTML = firstOperand + operator;
+                }    
             }
+            
             // Makes Operands into negative #, percent, and adds decimal points.
             function special(input) {       
                 if (input === "+/-" && secondOperand == "") {
-                    firstOperand =  "-" + firstOperand;
+                    firstOperand =  -firstOperand;
                 }
                 else if (input === "+/-" && secondOperand != "") {
-                    secondOperand = "-" + secondOperand;
+                    secondOperand = -secondOperand;
                 }
                 else if (input === "." &&  (!firstOperand.includes(".")) && (!firstOperand.includes("%"))) {
                     firstOperand = firstOperand + ".";
@@ -57,16 +58,15 @@
                 }
                 else if (input === "%" && secondOperand != "" && (!secondOperand.includes("%"))) {
                     secondOperand = secondOperand + "%";
-                }
-                else if (input === "c") {
+                }  
+                document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
+
+                 if (input === "c") {
                     firstOperand = "";
                     secondOperand = "";
                     operator = "";
-                    percent = "";
-                    percent2 = "";
                     document.getElementById("box").innerHTML = "0";
-                }   
-                document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
+                } 
             }
 
             // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
@@ -81,7 +81,7 @@
                     }
                 else if (secondOperand.includes("%")) {
                     secondOperand = .01 * secondOperand.replace("%", "");
-                    }
+                }
 
                 firstOperand = Number(firstOperand);
                 secondOperand = Number(secondOperand);
@@ -103,10 +103,8 @@
                     answer = Math.ceil(answer * 100) / 100;
                     }
                     document.getElementById("box").innerHTML = answer;
-                    firstOperand = answer;
+                    firstOperand = answer.toString();
                     secondOperand = '';
-                    percent = "";
-                    percent2 = "";
                 }
         </script>
     </head>
