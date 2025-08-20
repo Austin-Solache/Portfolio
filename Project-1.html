@@ -41,11 +41,11 @@
             
             // Makes Operands into negative #, percent, and adds decimal points.
             function special(input) {       
-                if (input === "+/-" && operator == "") {
-                    firstOperand =  -firstOperand;
+                if (input === "+/-" && operator == "" && !firstOperand.includes("-") && firstOperand != "") {
+                    firstOperand =  "-" + firstOperand;
                 }
-                else if (input === "+/-" && operator != "") {
-                    secondOperand = -secondOperand;
+                else if (input === "+/-" && operator != "" && !secondOperand.includes("-") && secondOperand != "") {
+                    secondOperand = "-" + secondOperand;
                 }
                 else if (input === "." &&  (!firstOperand.includes(".")) && (!firstOperand.includes("%"))) {
                     firstOperand = firstOperand + ".";
@@ -53,10 +53,10 @@
                  else if (input === "." && operator != "" && (!secondOperand.includes(".")) && (!secondOperand.includes("%"))) {
                     secondOperand = secondOperand + ".";
                 }
-                else if (input === "%" && (!firstOperand.includes("%")) && operator === "") {
+                else if (input === "%" && (!firstOperand.includes("%")) && operator == "" && firstOperand != "") {
                     firstOperand = firstOperand + "%";
                 }
-                else if (input === "%" && (!secondOperand.includes("%")) && operator != "") {
+                else if (input === "%" && (!secondOperand.includes("%")) && operator != "" && secondOperand != "") {
                     secondOperand = secondOperand + "%";
                 }  
                 document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
@@ -72,14 +72,11 @@
             // Does the arithmetic for Addition, Subtraction, Multiplication, and Divsion
             function math() {    
             // Checks if Operands are percentages and converts them to decimals
-                if (firstOperand.includes("%") && secondOperand.includes("%")) {
+                if (firstOperand.includes("%")) {
                     firstOperand = .01 * firstOperand.replace("%", "");
-                    secondOperand = .01 * secondOperand.replace("%", "");
-                    }
-                else if (firstOperand.includes("%")) {
-                    firstOperand = .01 * firstOperand.replace("%", "");
-                    }
-                else if (secondOperand.includes("%")) {
+                    } 
+                    
+                if (secondOperand.includes("%")) {
                     secondOperand = .01 * secondOperand.replace("%", "");
                 }
 
