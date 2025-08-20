@@ -41,10 +41,10 @@
             
             // Makes Operands into negative #, percent, and adds decimal points.
             function special(input) {       
-                if (input === "+/-" && secondOperand == "") {
+                if (input === "+/-" && operator == "") {
                     firstOperand =  -firstOperand;
                 }
-                else if (input === "+/-" && secondOperand != "") {
+                else if (input === "+/-" && operator != "") {
                     secondOperand = -secondOperand;
                 }
                 else if (input === "." &&  (!firstOperand.includes(".")) && (!firstOperand.includes("%"))) {
@@ -53,10 +53,10 @@
                  else if (input === "." && operator != "" && (!secondOperand.includes(".")) && (!secondOperand.includes("%"))) {
                     secondOperand = secondOperand + ".";
                 }
-                else if (input === "%" && (!firstOperand.includes("%")) && firstOperand != "") {
+                else if (input === "%" && (!firstOperand.includes("%")) && operator === "") {
                     firstOperand = firstOperand + "%";
                 }
-                else if (input === "%" && secondOperand != "" && (!secondOperand.includes("%"))) {
+                else if (input === "%" && (!secondOperand.includes("%")) && operator != "") {
                     secondOperand = secondOperand + "%";
                 }  
                 document.getElementById("box").innerHTML =  firstOperand + operator + secondOperand;
